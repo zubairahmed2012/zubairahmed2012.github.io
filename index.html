@@ -1,1234 +1,1240 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zubair Ahmed | SQA Engineer</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #2c3e50;
-            --secondary: #3498db;
-            --accent: #2ecc71;
-            --light: #ecf0f1;
-            --dark: #1a252f;
-            --gray: #7f8c8d;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f9f9f9;
-        }
-        
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        /* Header Styles */
-        header {
-            background: var(--primary);
-            color: white;
-            padding: 1.5rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo span {
-            color: var(--secondary);
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 1.5rem;
-        }
-        
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-        
-        .nav-links a:hover {
-            color: var(--secondary);
-        }
-        
-        .mobile-menu {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
-            color: white;
-            padding: 6rem 0;
-            text-align: center;
-        }
-        
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        
-        .hero h2 {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            color: var(--secondary);
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-        
-        .cta-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-        
-        .btn {
-            display: inline-block;
-            background: var(--secondary);
-            color: white;
-            padding: 0.8rem 1.8rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            border: 2px solid var(--secondary);
-        }
-        
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--secondary);
-        }
-        
-        .btn:hover {
-            background: #2980b9;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-        
-        /* Section Styles */
-        section {
-            padding: 5rem 0;
-        }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        
-        .section-title {
-            font-size: 2.2rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-            position: relative;
-            display: inline-block;
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: var(--secondary);
-            border-radius: 2px;
-        }
-        
-        .section-subtitle {
-            color: var(--gray);
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
-        /* Experience Section */
-        .experience-item {
-            background: white;
-            border-radius: 10px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            border-left: 4px solid var(--secondary);
-            transition: transform 0.3s ease;
-        }
-        
-        .experience-item:hover {
-            transform: translateY(-5px);
-        }
-        
-        .exp-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
-            flex-wrap: wrap;
-        }
-        
-        .company {
-            font-weight: bold;
-            font-size: 1.2rem;
-            color: var(--primary);
-        }
-        
-        .duration {
-            background: var(--light);
-            color: var(--primary);
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-        }
-        
-        .position {
-            color: var(--secondary);
-            margin-bottom: 1rem;
-            font-weight: 500;
-        }
-        
-        .responsibilities {
-            list-style-type: none;
-        }
-        
-        .responsibilities li {
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-        
-        .responsibilities li::before {
-            content: '▹';
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-        }
-        
-        /* Skills Section */
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .skill-category {
-            background: white;
-            border-radius: 10px;
-            padding: 1.5rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-        
-        .skill-category h3 {
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--light);
-        }
-        
-        .skill-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-        }
-        
-        .skill {
-            background: var(--light);
-            color: var(--primary);
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .skill i {
-            color: var(--secondary);
-        }
-        
-        /* Projects Section */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-        
-        .project-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
-        }
-        
-        .project-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .project-img {
-            height: 200px;
-            background: linear-gradient(45deg, #3498db, #2c3e50);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 3rem;
-        }
-        
-        .project-info {
-            padding: 1.5rem;
-        }
-        
-        .project-title {
-            font-size: 1.3rem;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-        
-        .project-tech {
-            color: var(--secondary);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-        
-        .project-contribution {
-            margin-bottom: 1.5rem;
-            color: var(--gray);
-        }
-        
-        .project-links {
-            display: flex;
-            gap: 1rem;
-        }
-        
-        .project-link {
-            display: inline-block;
-            color: var(--secondary);
-            text-decoration: none;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .project-link:hover {
-            color: var(--primary);
-        }
-        
-        /* Education Section */
-        .education-timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .education-timeline::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: var(--light);
-            left: 50%;
-            margin-left: -1px;
-        }
-        
-        .timeline-item {
-            padding: 1.5rem;
-            position: relative;
-            width: 50%;
-            box-sizing: border-box;
-        }
-        
-        .timeline-item:nth-child(odd) {
-            left: 0;
-            padding-right: 3rem;
-            text-align: right;
-        }
-        
-        .timeline-item:nth-child(even) {
-            left: 50%;
-            padding-left: 3rem;
-        }
-        
-        .timeline-content {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            position: relative;
-        }
-        
-        .timeline-content::after {
-            content: '';
-            position: absolute;
-            width: 15px;
-            height: 15px;
-            background: var(--secondary);
-            border-radius: 50%;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-        
-        .timeline-item:nth-child(odd) .timeline-content::after {
-            right: -35px;
-        }
-        
-        .timeline-item:nth-child(even) .timeline-content::after {
-            left: -35px;
-        }
-        
-        .education-title {
-            font-size: 1.2rem;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-        
-        .education-degree {
-            color: var(--secondary);
-            margin-bottom: 0.5rem;
-        }
-        
-        .education-details {
-            display: flex;
-            justify-content: space-between;
-            color: var(--gray);
-            font-size: 0.9rem;
-        }
-        
-        /* Certifications Section */
-        .certs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-        
-        .cert-card {
-            background: white;
-            border-radius: 10px;
-            padding: 1.5rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            border-left: 4px solid var(--accent);
-        }
-        
-        .cert-title {
-            font-size: 1.1rem;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-        
-        .cert-issuer {
-            color: var(--secondary);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-        
-        .cert-date {
-            color: var(--gray);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-        
-        .cert-skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-        
-        .cert-skill {
-            background: var(--light);
-            color: var(--primary);
-            padding: 0.3rem 0.8rem;
-            border-radius: 50px;
-            font-size: 0.8rem;
-        }
-        
-        /* Contact Section */
-        .contact-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-        }
-        
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-        
-        .contact-item {
-            display: flex;
-            gap: 1rem;
-            align-items: flex-start;
-        }
-        
-        .contact-icon {
-            background: var(--secondary);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-        }
-        
-        .contact-text h3 {
-            color: var(--primary);
-            margin-bottom: 0.3rem;
-        }
-        
-        .contact-form {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-        
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: var(--primary);
-            font-weight: 500;
-        }
-        
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.8rem 1rem;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-family: inherit;
-            font-size: 1rem;
-        }
-        
-        .form-group textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-        
-        /* Footer */
-        footer {
-            background: var(--dark);
-            color: white;
-            padding: 3rem 0 1.5rem;
-        }
-        
-        .footer-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 1.5rem;
-            margin: 1.5rem 0;
-        }
-        
-        .social-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.1);
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        
-        .social-link:hover {
-            background: var(--secondary);
-            transform: translateY(-3px);
-        }
-        
-        .copyright {
-            margin-top: 2rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            width: 100%;
-            color: rgba(255,255,255,0.7);
-        }
-        
-        /* Responsive Styles */
-        @media (max-width: 900px) {
-            .education-timeline::before {
-                left: 30px;
-            }
-            
-            .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 0;
-                text-align: left;
-            }
-            
-            .timeline-item:nth-child(odd) {
-                padding-right: 0;
-                text-align: left;
-            }
-            
-            .timeline-item:nth-child(even) {
-                left: 0;
-                padding-left: 70px;
-            }
-            
-            .timeline-content::after {
-                left: -35px !important;
-                top: 30px;
-                transform: translateY(0);
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .mobile-menu {
-                display: block;
-            }
-            
-            .nav-links {
-                position: fixed;
-                top: 70px;
-                left: -100%;
-                background: var(--primary);
-                width: 100%;
-                flex-direction: column;
-                padding: 2rem;
-                transition: left 0.3s ease;
-                gap: 1rem;
-            }
-            
-            .nav-links.active {
-                left: 0;
-            }
-            
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .hero h2 {
-                font-size: 1.3rem;
-            }
-            
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zubair Ahmed | SQA Engineer</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root {
+--primary: #2c3e50;
+--secondary: #3498db;
+--accent: #2ecc71;
+--light: #ecf0f1;
+--dark: #1a252f;
+--gray: #7f8c8d;
+}
+
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+line-height: 1.6;
+color: #333;
+background-color: #f9f9f9;
+}
+
+.container {
+width: 90%;
+max-width: 1200px;
+margin: 0 auto;
+}
+
+/* Header Styles */
+header {
+background: var(--primary);
+color: white;
+padding: 1.5rem 0;
+position: sticky;
+top: 0;
+z-index: 100;
+box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+nav {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.logo {
+font-size: 1.8rem;
+font-weight: bold;
+display: flex;
+align-items: center;
+}
+
+.logo span {
+color: var(--secondary);
+}
+
+.nav-links {
+display: flex;
+gap: 1.5rem;
+}
+
+.nav-links a {
+color: white;
+text-decoration: none;
+font-weight: 500;
+transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+color: var(--secondary);
+}
+
+.mobile-menu {
+display: none;
+background: none;
+border: none;
+color: white;
+font-size: 1.5rem;
+cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
+color: white;
+padding: 6rem 0;
+text-align: center;
+}
+
+.hero-content {
+max-width: 800px;
+margin: 0 auto;
+}
+
+.hero h1 {
+font-size: 3rem;
+margin-bottom: 1rem;
+}
+
+.hero h2 {
+font-size: 1.5rem;
+margin-bottom: 2rem;
+color: var(--secondary);
+}
+
+.hero p {
+font-size: 1.2rem;
+margin-bottom: 2rem;
+opacity: 0.9;
+}
+
+.cta-buttons {
+display: flex;
+justify-content: center;
+gap: 1rem;
+margin-top: 2rem;
+}
+
+.btn {
+display: inline-block;
+background: var(--secondary);
+color: white;
+padding: 0.8rem 1.8rem;
+border-radius: 50px;
+text-decoration: none;
+font-weight: bold;
+transition: all 0.3s ease;
+border: 2px solid var(--secondary);
+}
+
+.btn-outline {
+background: transparent;
+border: 2px solid var(--secondary);
+}
+
+.btn:hover {
+background: #2980b9;
+transform: translateY(-3px);
+box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Section Styles */
+section {
+padding: 5rem 0;
+}
+
+.section-header {
+text-align: center;
+margin-bottom: 3rem;
+}
+
+.section-title {
+font-size: 2.2rem;
+color: var(--primary);
+margin-bottom: 1rem;
+position: relative;
+display: inline-block;
+}
+
+.section-title::after {
+content: '';
+position: absolute;
+bottom: -10px;
+left: 50%;
+transform: translateX(-50%);
+width: 80px;
+height: 4px;
+background: var(--secondary);
+border-radius: 2px;
+}
+
+.section-subtitle {
+color: var(--gray);
+max-width: 700px;
+margin: 0 auto;
+}
+
+/* Experience Section */
+.experience-item {
+background: white;
+border-radius: 10px;
+padding: 2rem;
+margin-bottom: 2rem;
+box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+border-left: 4px solid var(--secondary);
+transition: transform 0.3s ease;
+}
+
+.experience-item:hover {
+transform: translateY(-5px);
+}
+
+.exp-header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 1rem;
+flex-wrap: wrap;
+}
+
+.company {
+font-weight: bold;
+font-size: 1.2rem;
+color: var(--primary);
+}
+
+.duration {
+background: var(--light);
+color: var(--primary);
+padding: 0.3rem 0.8rem;
+border-radius: 20px;
+font-size: 0.9rem;
+}
+
+.position {
+color: var(--secondary);
+margin-bottom: 1rem;
+font-weight: 500;
+}
+
+.responsibilities {
+list-style-type: none;
+}
+
+.responsibilities li {
+padding: 0.5rem 0;
+padding-left: 1.5rem;
+position: relative;
+}
+
+.responsibilities li::before {
+content: '▹';
+position: absolute;
+left: 0;
+color: var(--accent);
+}
+
+/* Skills Section */
+.skills-container {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+gap: 2rem;
+}
+
+.skill-category {
+background: white;
+border-radius: 10px;
+padding: 1.5rem;
+box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.skill-category h3 {
+color: var(--primary);
+margin-bottom: 1.5rem;
+padding-bottom: 0.5rem;
+border-bottom: 2px solid var(--light);
+}
+
+.skill-list {
+display: flex;
+flex-wrap: wrap;
+gap: 0.8rem;
+}
+
+.skill {
+background: var(--light);
+color: var(--primary);
+padding: 0.5rem 1rem;
+border-radius: 50px;
+font-size: 0.9rem;
+display: flex;
+align-items: center;
+gap: 0.5rem;
+}
+
+.skill i {
+color: var(--secondary);
+}
+
+/* Projects Section */
+.projects-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+gap: 2rem;
+}
+
+.project-card {
+background: white;
+border-radius: 10px;
+overflow: hidden;
+box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+transform: translateY(-10px);
+}
+
+.project-img {
+height: 200px;
+background: linear-gradient(45deg, #3498db, #2c3e50);
+display: flex;
+align-items: center;
+justify-content: center;
+color: white;
+font-size: 3rem;
+}
+
+.project-info {
+padding: 1.5rem;
+}
+
+.project-title {
+font-size: 1.3rem;
+color: var(--primary);
+margin-bottom: 0.5rem;
+}
+
+.project-tech {
+color: var(--secondary);
+font-size: 0.9rem;
+margin-bottom: 1rem;
+}
+
+.project-contribution {
+margin-bottom: 1.5rem;
+color: var(--gray);
+}
+
+.project-links {
+display: flex;
+gap: 1rem;
+}
+
+.project-link {
+display: inline-block;
+color: var(--secondary);
+text-decoration: none;
+font-weight: 500;
+display: flex;
+align-items: center;
+gap: 0.5rem;
+}
+
+.project-link:hover {
+color: var(--primary);
+}
+
+/* Education Section */
+.education-timeline {
+position: relative;
+max-width: 800px;
+margin: 0 auto;
+}
+
+.education-timeline::before {
+content: '';
+position: absolute;
+top: 0;
+bottom: 0;
+width: 2px;
+background: var(--light);
+left: 50%;
+margin-left: -1px;
+}
+
+.timeline-item {
+padding: 1.5rem;
+position: relative;
+width: 50%;
+box-sizing: border-box;
+}
+
+.timeline-item:nth-child(odd) {
+left: 0;
+padding-right: 3rem;
+text-align: right;
+}
+
+.timeline-item:nth-child(even) {
+left: 50%;
+padding-left: 3rem;
+}
+
+.timeline-content {
+background: white;
+padding: 1.5rem;
+border-radius: 10px;
+box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+position: relative;
+}
+
+.timeline-content::after {
+content: '';
+position: absolute;
+width: 15px;
+height: 15px;
+background: var(--secondary);
+border-radius: 50%;
+top: 50%;
+transform: translateY(-50%);
+}
+
+.timeline-item:nth-child(odd) .timeline-content::after {
+right: -35px;
+}
+
+.timeline-item:nth-child(even) .timeline-content::after {
+left: -35px;
+}
+
+.education-title {
+font-size: 1.2rem;
+color: var(--primary);
+margin-bottom: 0.5rem;
+}
+
+.education-degree {
+color: var(--secondary);
+margin-bottom: 0.5rem;
+}
+
+.education-details {
+display: flex;
+justify-content: space-between;
+color: var(--gray);
+font-size: 0.9rem;
+}
+
+/* Certifications Section */
+.certs-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+gap: 1.5rem;
+}
+
+.cert-card {
+background: white;
+border-radius: 10px;
+padding: 1.5rem;
+box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+border-left: 4px solid var(--accent);
+}
+
+.cert-title {
+font-size: 1.1rem;
+color: var(--primary);
+margin-bottom: 0.5rem;
+}
+
+.cert-issuer {
+color: var(--secondary);
+font-size: 0.9rem;
+margin-bottom: 1rem;
+}
+
+.cert-date {
+color: var(--gray);
+font-size: 0.9rem;
+margin-bottom: 1rem;
+}
+
+.cert-skills {
+display: flex;
+flex-wrap: wrap;
+gap: 0.5rem;
+margin-top: 1rem;
+}
+
+.cert-skill {
+background: var(--light);
+color: var(--primary);
+padding: 0.3rem 0.8rem;
+border-radius: 50px;
+font-size: 0.8rem;
+}
+
+/* Contact Section */
+.contact-container {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+gap: 3rem;
+}
+
+.contact-info {
+display: flex;
+flex-direction: column;
+gap: 1.5rem;
+}
+
+.contact-item {
+display: flex;
+gap: 1rem;
+align-items: flex-start;
+}
+
+.contact-icon {
+background: var(--secondary);
+color: white;
+width: 50px;
+height: 50px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 1.2rem;
+}
+
+.contact-text h3 {
+color: var(--primary);
+margin-bottom: 0.3rem;
+}
+
+.contact-form {
+background: white;
+padding: 2rem;
+border-radius: 10px;
+box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.form-group {
+margin-bottom: 1.5rem;
+}
+
+.form-group label {
+display: block;
+margin-bottom: 0.5rem;
+color: var(--primary);
+font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+width: 100%;
+padding: 0.8rem 1rem;
+border: 1px solid #ddd;
+border-radius: 5px;
+font-family: inherit;
+font-size: 1rem;
+}
+
+.form-group textarea {
+min-height: 150px;
+resize: vertical;
+}
+
+/* Footer */
+footer {
+background: var(--dark);
+color: white;
+padding: 3rem 0 1.5rem;
+}
+
+.footer-content {
+display: flex;
+flex-direction: column;
+align-items: center;
+text-align: center;
+}
+
+.social-links {
+display: flex;
+gap: 1.5rem;
+margin: 1.5rem 0;
+}
+
+.social-link {
+display: flex;
+align-items: center;
+justify-content: center;
+width: 40px;
+height: 40px;
+border-radius: 50%;
+background: rgba(255,255,255,0.1);
+color: white;
+text-decoration: none;
+transition: all 0.3s ease;
+}
+
+.social-link:hover {
+background: var(--secondary);
+transform: translateY(-3px);
+}
+
+.copyright {
+margin-top: 2rem;
+padding-top: 1.5rem;
+border-top: 1px solid rgba(255,255,255,0.1);
+width: 100%;
+color: rgba(255,255,255,0.7);
+}
+
+/* Responsive Styles */
+@media (max-width: 900px) {
+.education-timeline::before {
+left: 30px;
+}
+
+.timeline-item {
+width: 100%;
+padding-left: 70px;
+padding-right: 0;
+text-align: left;
+}
+
+.timeline-item:nth-child(odd) {
+padding-right: 0;
+text-align: left;
+}
+
+.timeline-item:nth-child(even) {
+left: 0;
+padding-left: 70px;
+}
+
+.timeline-content::after {
+left: -35px !important;
+top: 30px;
+transform: translateY(0);
+}
+}
+
+@media (max-width: 768px) {
+.mobile-menu {
+display: block;
+}
+
+.nav-links {
+position: fixed;
+top: 70px;
+left: -100%;
+background: var(--primary);
+width: 100%;
+flex-direction: column;
+padding: 2rem;
+transition: left 0.3s ease;
+gap: 1rem;
+}
+
+.nav-links.active {
+left: 0;
+}
+
+.hero h1 {
+font-size: 2.2rem;
+}
+
+.hero h2 {
+font-size: 1.3rem;
+}
+
+.cta-buttons {
+flex-direction: column;
+align-items: center;
+}
+}
+</style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logo">Z<span>A</span></div>
-                <button class="mobile-menu">
-                    <i class="fas fa-bars"></i>
-                </button>
-                <div class="nav-links">
-                    <a href="#experience">Experience</a>
-                    <a href="#skills">Skills</a>
-                    <a href="#projects">Projects</a>
-                    <a href="#education">Education</a>
-                    <a href="#certifications">Certifications</a>
-                    <a href="#contact">Contact</a>
-                </div>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Zubair Ahmed</h1>
-                <h2>Software Quality Assurance Engineer</h2>
-                <p>To work as a Software Quality Assurance Engineer, where I can apply my software testing knowledge and skills in the software quality assurance process ensuring quality standards and best practices.</p>
-                <div class="cta-buttons">
-                    <a href="#contact" class="btn">Get In Touch</a>
-                    <a href="#projects" class="btn btn-outline">View My Work</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Work Experience</h2>
-                <p class="section-subtitle">My professional journey as an SQA Engineer</p>
-            </div>
-
-   <div class="experience-item">
-                <div class="exp-header">
-                    <div class="company">Sparktech Agency</div>
-                    <div class="duration">August 2025 - Present</div>
-                </div>
-                <div class="position">Junior SQA Engineer</div>
-                <ul class="responsibilities">
-                    <li>Ensured timely delivery of multiple MVPs by performing rapid test cycles without compromising quality.</li>
-                    <li>Worked effectively under tight deadlines and high-pressure conditions, maintaining accuracy in defect tracking and reporting.</li>
-                    <li>Adapted quickly to changing priorities and requirements of the core features.</li>
-                    <li>Conducted usability testing to enhance user interface (UI) and user experience (UX).</li>
-                    <li>Collaborated closely with developers, product managers, and stakeholders in an Agile/Scrum environment to align testing with evolving business needs.</li>
-                    <li>Balanced quality with speed, ensuring MVPs met functional requirements while being ready for market validation.</li>
-                    <li>Provided technical support regarding website and app maintenance issues.</li>
-                    </ul>
-            </div>
-            <div class="experience-item">
-                <div class="exp-header">
-                    <div class="company">Urban IT Solution</div>
-                    <div class="duration">March 2024 - July 2025</div>
-                </div>
-                <div class="position">Junior SQA Engineer</div>
-                <ul class="responsibilities">
-                    <li>Create comprehensive test plans in IEEE 829 standard format, defining objectives, scope, and timelines for effective test coverage.</li>
-                    <li>Conducted various testing types- functional and regression to validate software behavior and identify defects.</li>
-                    <li>Prepared software documentation and user manuals for clients and stakeholders.</li>
-                    <li>Implemented API tests (Rest Assured) for validating responses, status codes, and headers, ensuring robust API functionality and performance. Focusing on request/response validation & data integrity.</li>
-                    <li>Executed tests to improve testing efficiency and coverage using JMeter for performance testing and monitoring metrics such as response time, throughput, and resource utilization to identify bottlenecks and optimize system performance.</li>
-                    <li>Security testing for detecting bugs and possible threats/vulnerabilities to ensure high security.</li>
-                    </ul>
-            </div>
-
-        </div>
-                    
-                         
-                    
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Technical Skills</h2>
-                <p class="section-subtitle">My expertise in software quality assurance</p>
-            </div>
-            
-            <div class="skills-container">
-                <div class="skill-category">
-                    <h3>Testing Tools</h3>
-                    <div class="skill-list">
-                        <div class="skill"><i class="fas fa-mobile-alt"></i> Appium</div>
-                        <div class="skill"><i class="fas fa-laptop-code"></i> Selenium</div>
-                        <div class="skill"><i class="fas fa-tachometer-alt"></i> JMeter</div>
-                        <div class="skill"><i class="fas fa-plug"></i> Postman</div>
-                        <div class="skill"><i class="fas fa-bug"></i> Burp Suite</div>
-                        <div class="skill"><i class="fas fa-network-wired"></i> Nmap</div>
-                        <div class="skill"><i class="fas fa-code"></i> TestNG</div>
-                        <div class="skill"><i class="fas fa-tasks"></i> Jira</div>
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <h3>Testing Expertise</h3>
-                    <div class="skill-list">
-                        <div class="skill"><i class="fas fa-check-circle"></i> Manual Testing</div>
-                        <div class="skill"><i class="fas fa-robot"></i> Automation Testing</div>
-                        <div class="skill"><i class="fas fa-bolt"></i> Performance Testing</div>
-                        <div class="skill"><i class="fas fa-shield-alt"></i> Security Testing</div>
-                        <div class="skill"><i class="fas fa-exchange-alt"></i> API Testing</div>
-                        <div class="skill"><i class="fas fa-user-check"></i> UAT</div>
-                        <div class="skill"><i class="fas fa-sync-alt"></i> Regression Testing</div>
-                        <div class="skill"><i class="fas fa-file-alt"></i> Test Documentation</div>
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <h3>Technical Knowledge</h3>
-                    <div class="skill-list">
-                        <div class="skill"><i class="fas fa-code"></i> Java</div>
-                        <div class="skill"><i class="fab fa-python"></i> Python</div>
-                        <div class="skill"><i class="fas fa-database"></i> MySQL</div>
-                        <div class="skill"><i class="fab fa-git-alt"></i> GitHub</div>
-                        <div class="skill"><i class="fas fa-sitemap"></i> SDLC</div>
-                        <div class="skill"><i class="fas fa-check-double"></i> STLC</div>
-                        <div class="skill"><i class="fas fa-cube"></i> OOP</div>
-                        <div class="skill"><i class="fas fa-project-diagram"></i> Agile</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Projects</h2>
-                <p class="section-subtitle">Professional projects I've contributed to</p>
-            </div>
-            
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-img">
-                        <i class="fas fa-school"></i>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Pathshala School Management ERP</h3>
-                        <p class="project-tech">PHP-Laravel, JQuery, MySQL</p>
-                        <p class="project-contribution">Ensured functionality of admissions, attendance, HR, fees, and result management modules. Conducted comprehensive functional, regression, and performance testing for integrated features like SMS/email notifications, e-payments, and online classes/exams.</p>
-                        <div class="project-links">
-                            <a href="https://ammkbhs.com/admin/login" class="project-link" target="_blank">
-                                <i class="fas fa-external-link-alt"></i> Visit Project
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-img">
-                        <i class="fas fa-sms"></i>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Quick SMS - Bulk SMS Solution</h3>
-                        <p class="project-tech">PHP-Laravel, JQuery, MySQL</p>
-                        <p class="project-contribution">Ensured accuracy of contact management, SMS API setup, and profile management features. Validated core functionalities for creating and managing SMS campaigns using various data sources. Conducted functional, regression, and usability testing.</p>
-                        <div class="project-links">
-                            <a href="https://quicksmsapp.com/admin/login" class="project-link" target="_blank">
-                                <i class="fas fa-external-link-alt"></i> Visit Project
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-img">
-                        <i class="fas fa-truck"></i>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">United Express Courier System</h3>
-                        <p class="project-tech">React Native, Node.js, JQuery, MySQL</p>
-                        <p class="project-contribution">Ensured accuracy and performance of login, home, and cargo management features. Validated critical functionalities for creating and managing agent cargo, Dhaka cargo, and OTP-based PODs. Conducted functional, regression, and usability testing.</p>
-                        <div class="project-links">
-                            <a href="#" class="project-link">
-                                <i class="fas fa-lock"></i> Corporate Use Only
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-img">
-                        <i class="fas fa-shopping-cart"></i>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">E-Commerce Site Management System</h3>
-                        <p class="project-tech">Next.js, Node.js, Express.js, JQuery, MySQL</p>
-                        <p class="project-contribution">Ensured precision of customer purchasing and seller management features. Evaluated inventory management, stock tracking, HR operations, salary computation, and exchange processes. Conducted rigorous functional, regression, and performance testing.</p>
-                        <div class="project-links">
-                            <a href="#" class="project-link">
-                                <i class="fas fa-lock"></i> Not Publicly Accessible
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-
-
-                <div class="project-card">
-                    <div class="project-img">
-                        <i class="fas fa-futbol"></i>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Soccer Social Website</h3>
-                        <p class="project-tech">React, Next.js, MongoDB</p>
-                        <p class="project-contribution">Performed comprehensive UI, functional, manual, and regression testing on both the website and admin panel to ensure seamless user experience and stable MVP release.</p>
-                        <div class="project-links">
-                            <a href="https://soccer-social.com/" class="project-link" target="_blank">
-                                <i class="fas fa-external-link-alt"></i> Visit Project
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                
-                <div class="project-card">
-                    <div class="project-img">
-                       <i class="fas fa-briefcase"></i>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">RemotISJobs-Job Portal</h3>
-                        <p class="project-tech">React, Next.js, MongoDB</p>
-                        <p class="project-contribution">Executed UI, functional, regression, and usability testing to validate smooth operations for both job providers and job seekers, ensuring readiness for rapid market validation.</p>
-                        <div class="project-links">
-                            <a href="#" class="project-link">
-                                <i class="fas fa-lock"></i> Not Publicly Accessible
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-img">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Tassel Mobile App</h3>
-                          <p class="project-tech">Flutter, node.js, MongoDB</p>
-                        <p class="project-contribution">Conducted multi-user role testing, including UI, functional, regression, and usability validation, to support MVP launch of a community-building mobile application.</p>
-                        <div class="project-links">
-                            <a href="#" class="project-link">
-                                <i class="fas fa-lock"></i> Not Publicly Accessible
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="project-card">
-                    <div class="project-img">
-                        <i class="fas fa-newspaper"></i>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">PageDrop Mobile App</h3>
-                        <p class="project-tech">Flutter, node.js, MongoDB</p>
-                        <p class="project-contribution">Delivered manual, functional, regression, and usability testing to guarantee intuitive user interactions and successful MVP deployment of a digital newspaper app.</p>
-                        <div class="project-links">
-                            <a href="#" class="project-link">
-                                <i class="fas fa-lock"></i> Not Publicly Accessible
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-
-
-                
-            </div>
-        </div>
-    </section>
-
-    <!-- Education Section -->
-    <section id="education">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Education</h2>
-                <p class="section-subtitle">My academic background and qualifications</p>
-            </div>
-            
-            <div class="education-timeline">
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3 class="education-title">University of Dhaka</h3>
-                        <p class="education-degree">MBA in Management Information Systems (MIS)</p>
-                        <div class="education-details">
-                            <span>2018 - 2021</span>
-                            <span>CGPA: 3.65</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3 class="education-title">United International University</h3>
-                        <p class="education-degree">B.Sc. in Computer Science & Engineering (CSE)</p>
-                        <div class="education-details">
-                            <span>2013 - 2017</span>
-                            <span>CGPA: 2.92</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3 class="education-title">Adamjee Cantonment College</h3>
-                        <p class="education-degree">HSC in Science</p>
-                        <div class="education-details">
-                            <span>2012</span>
-                            <span>GPA: 4.70</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3 class="education-title">Mirpur Bangla High School</h3>
-                        <p class="education-degree">SSC in Science</p>
-                        <div class="education-details">
-                            <span>2010</span>
-                            <span>GPA: 5.00</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Certifications Section -->
-    <section id="certifications">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Certifications & Training</h2>
-                <p class="section-subtitle">My professional certifications and specialized training</p>
-            </div>
-            
-            <div class="certs-grid">
-                <div class="cert-card">
-                    <h3 class="cert-title">Creating Compelling Reports</h3>
-                    <p class="cert-issuer">Cisco</p>
-                    <p class="cert-date">April 2024</p>
-                    <div class="cert-skills">
-                        <span class="cert-skill">Report Audience</span>
-                        <span class="cert-skill">Report Purpose</span>
-                        <span class="cert-skill">Report Tone</span>
-                    </div>
-                </div>
-                
-                <div class="cert-card">
-                    <h3 class="cert-title">Agile Fundamentals Certification</h3>
-                    <p class="cert-issuer">Udemy</p>
-                    <p class="cert-date">October 2024</p>
-                    <div class="cert-skills">
-                        <span class="cert-skill">Agile Principles</span>
-                        <span class="cert-skill">Scrum Framework</span>
-                        <span class="cert-skill">Agile vs Waterfall</span>
-                    </div>
-                </div>
-                
-                <div class="cert-card">
-                    <h3 class="cert-title">Introduction to Cybersecurity</h3>
-                    <p class="cert-issuer">Cisco</p>
-                    <p class="cert-date">April 2024</p>
-                    <div class="cert-skills">
-                        <span class="cert-skill">Cyber Best Practices</span>
-                        <span class="cert-skill">Network Vulnerabilities</span>
-                        <span class="cert-skill">Threat Detection</span>
-                    </div>
-                </div>
-                
-                <div class="cert-card">
-                    <h3 class="cert-title">Professional Diploma in Software Testing & QA</h3>
-                    <p class="cert-issuer">Udemy</p>
-                    <p class="cert-date">October 2024</p>
-                    <div class="cert-skills">
-                        <span class="cert-skill">Testing Principles</span>
-                        <span class="cert-skill">Quality Assurance</span>
-                        <span class="cert-skill">Practical Testing</span>
-                    </div>
-                </div>
-                
-                <div class="cert-card">
-                    <h3 class="cert-title">Hands On Software Quality Assurance & Cyber Security</h3>
-                    <p class="cert-issuer">IT Training BD</p>
-                    <p class="cert-date">December 2023 - September 2024</p>
-                    <div class="cert-skills">
-                        <span class="cert-skill">Practical SQA</span>
-                        <span class="cert-skill">Security Testing</span>
-                        <span class="cert-skill">Real-world Projects</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Get In Touch</h2>
-                <p class="section-subtitle">Feel free to reach out for collaboration or opportunities</p>
-            </div>
-            
-            <div class="contact-container">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h3>Email</h3>
-                            <p>zubairahmedsqa@gmail.com</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h3>Phone</h3>
-                            <p>+88 01677307120</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h3>Location</h3>
-                            <p>Dhaka, Bangladesh</p>
-                        </div>
-                    </div>
-                </div>
-
-
-
-                 <div class="contactform">
-               <form id="contactForm">
-    <div class="form-group">
-        <label for="name">Full Name*:</label>
-        <input type="text" id="name" name="user_name" required>
-            </div>
-
-    <div class="form-group">
-        <label for="email">Email Address*:</label>
-        <input type="email" id="email" name="user_email" required>
-            </div>
-
-    <div class="form-group">
-        <label for="message">Your Message*:</label>
-        <textarea id="message" name="message" required></textarea>
-            </div>
-        <button type="submit" class="btn">Send Message</button>
-    </div>
-	
+<!-- Header -->
+<header>
+<div class="container">
+<nav>
+<div class="logo">Z<span>A</span></div>
+<button class="mobile-menu">
+<i class="fas fa-bars"></i>
+</button>
+<div class="nav-links">
+<a href="#experience">Experience</a>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#education">Education</a>
+<a href="#certifications">Certifications</a>
+<a href="#contact">Contact</a>
 </div>
-	
-           
-            
-            
-            </div>
-        </div>
-    </section>
+</nav>
+</div>
+</header>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="logo">Zubair Ahmed</div>
-                <p>Software Quality Assurance Engineer</p>
-                
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/zubair-ahmed-7b9046237/" class="social-link" aria-label="LinkedIn">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="https://github.com/zubairahmed2012" class="social-link" aria-label="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="#" class="social-link" aria-label="Twitter">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="https://www.facebook.com/it-Training-Bd-21709926924087" class="social-link" aria-label="Facebook">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                </div>
-                
-                <div class="copyright">
-                    &copy; 2025 Zubair Ahmed. All Rights Reserved.
-                </div>
-            </div>
-        </div>
-    </footer>
+<!-- Hero Section -->
+<section class="hero">
+<div class="container">
+<div class="hero-content">
+<h1>Zubair Ahmed</h1>
+<h2>Software Quality Assurance Engineer</h2>
+<p>To work as a Software Quality Assurance Engineer, where I can apply my software testing knowledge and skills in the software quality assurance process ensuring quality standards and best practices.</p>
+<div class="cta-buttons">
+<a href="#contact" class="btn">Get In Touch</a>
+<a href="#projects" class="btn btn-outline">View My Work</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Experience Section -->
+<section id="experience">
+<div class="container">
+<div class="section-header">
+<h2 class="section-title">Work Experience</h2>
+<p class="section-subtitle">My professional journey as an SQA Engineer</p>
+</div>
+
+<div class="experience-item">
+<div class="exp-header">
+<div class="company">Sparktech Agency</div>
+<div class="duration">August 2025 - Present</div>
+</div>
+<div class="position">Junior SQA Engineer</div>
+<ul class="responsibilities">
+<li>Ensured timely delivery of multiple MVPs by performing rapid test cycles without compromising quality.</li>
+<li>Worked effectively under tight deadlines and high-pressure conditions, maintaining accuracy in defect tracking and reporting.</li>
+<li>Adapted quickly to changing priorities and requirements of the core features.</li>
+<li>Conducted usability testing to enhance user interface (UI) and user experience (UX).</li>
+<li>Collaborated closely with developers, product managers, and stakeholders in an Agile/Scrum environment to align testing with evolving business needs.</li>
+<li>Balanced quality with speed, ensuring MVPs met functional requirements while being ready for market validation.</li>
+<li>Provided technical support regarding website and app maintenance issues.</li>
+</ul>
+</div>
+<div class="experience-item">
+<div class="exp-header">
+<div class="company">Urban IT Solution</div>
+<div class="duration">March 2024 - July 2025</div>
+</div>
+<div class="position">Junior SQA Engineer</div>
+<ul class="responsibilities">
+<li>Create comprehensive test plans in IEEE 829 standard format, defining objectives, scope, and timelines for effective test coverage.</li>
+<li>Conducted various testing types- functional and regression to validate software behavior and identify defects.</li>
+<li>Prepared software documentation and user manuals for clients and stakeholders.</li>
+<li>Implemented API tests (Rest Assured) for validating responses, status codes, and headers, ensuring robust API functionality and performance. Focusing on request/response validation & data integrity.</li>
+<li>Executed tests to improve testing efficiency and coverage using JMeter for performance testing and monitoring metrics such as response time, throughput, and resource utilization to identify bottlenecks and optimize system performance.</li>
+<li>Security testing for detecting bugs and possible threats/vulnerabilities to ensure high security.</li>
+</ul>
+</div>
+
+</div>
+
+
+
+</div>
+</section>
+
+<!-- Skills Section -->
+<section id="skills">
+<div class="container">
+<div class="section-header">
+<h2 class="section-title">Technical Skills</h2>
+<p class="section-subtitle">My expertise in software quality assurance</p>
+</div>
+
+<div class="skills-container">
+<div class="skill-category">
+<h3>Testing Tools</h3>
+<div class="skill-list">
+<div class="skill"><i class="fas fa-mobile-alt"></i> Appium</div>
+<div class="skill"><i class="fas fa-laptop-code"></i> Selenium</div>
+<div class="skill"><i class="fas fa-tachometer-alt"></i> JMeter</div>
+<div class="skill"><i class="fas fa-plug"></i> Postman</div>
+<div class="skill"><i class="fas fa-bug"></i> Burp Suite</div>
+<div class="skill"><i class="fas fa-network-wired"></i> Nmap</div>
+<div class="skill"><i class="fas fa-code"></i> TestNG</div>
+<div class="skill"><i class="fas fa-tasks"></i> Jira</div>
+</div>
+</div>
+
+<div class="skill-category">
+<h3>Testing Expertise</h3>
+<div class="skill-list">
+<div class="skill"><i class="fas fa-check-circle"></i> Manual Testing</div>
+<div class="skill"><i class="fas fa-robot"></i> Automation Testing</div>
+<div class="skill"><i class="fas fa-bolt"></i> Performance Testing</div>
+<div class="skill"><i class="fas fa-shield-alt"></i> Security Testing</div>
+<div class="skill"><i class="fas fa-exchange-alt"></i> API Testing</div>
+<div class="skill"><i class="fas fa-user-check"></i> UAT</div>
+<div class="skill"><i class="fas fa-sync-alt"></i> Regression Testing</div>
+<div class="skill"><i class="fas fa-file-alt"></i> Test Documentation</div>
+</div>
+</div>
+
+<div class="skill-category">
+<h3>Technical Knowledge</h3>
+<div class="skill-list">
+<div class="skill"><i class="fas fa-code"></i> Java</div>
+<div class="skill"><i class="fab fa-python"></i> Python</div>
+<div class="skill"><i class="fas fa-database"></i> MySQL</div>
+<div class="skill"><i class="fab fa-git-alt"></i> GitHub</div>
+<div class="skill"><i class="fas fa-sitemap"></i> SDLC</div>
+<div class="skill"><i class="fas fa-check-double"></i> STLC</div>
+<div class="skill"><i class="fas fa-cube"></i> OOP</div>
+<div class="skill"><i class="fas fa-project-diagram"></i> Agile</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects">
+<div class="container">
+<div class="section-header">
+<h2 class="section-title">Projects</h2>
+<p class="section-subtitle">Professional projects I've contributed to</p>
+</div>
+
+<div class="projects-grid">
+<div class="project-card">
+<div class="project-img">
+<i class="fas fa-school"></i>
+</div>
+<div class="project-info">
+<h3 class="project-title">Pathshala School Management ERP</h3>
+<p class="project-tech">PHP-Laravel, JQuery, MySQL</p>
+<p class="project-contribution">Ensured functionality of admissions, attendance, HR, fees, and result management modules. Conducted comprehensive functional, regression, and performance testing for integrated features like SMS/email notifications, e-payments, and online classes/exams.</p>
+<div class="project-links">
+<a href="https://ammkbhs.com/admin/login" class="project-link" target="_blank">
+<i class="fas fa-external-link-alt"></i> Visit Project
+</a>
+</div>
+</div>
+</div>
+
+<div class="project-card">
+<div class="project-img">
+<i class="fas fa-sms"></i>
+</div>
+<div class="project-info">
+<h3 class="project-title">Quick SMS - Bulk SMS Solution</h3>
+<p class="project-tech">PHP-Laravel, JQuery, MySQL</p>
+<p class="project-contribution">Ensured accuracy of contact management, SMS API setup, and profile management features. Validated core functionalities for creating and managing SMS campaigns using various data sources. Conducted functional, regression, and usability testing.</p>
+<div class="project-links">
+<a href="https://quicksmsapp.com/admin/login" class="project-link" target="_blank">
+<i class="fas fa-external-link-alt"></i> Visit Project
+</a>
+</div>
+</div>
+</div>
+
+<div class="project-card">
+<div class="project-img">
+<i class="fas fa-truck"></i>
+</div>
+<div class="project-info">
+<h3 class="project-title">United Express Courier System</h3>
+<p class="project-tech">React Native, Node.js, JQuery, MySQL</p>
+<p class="project-contribution">Ensured accuracy and performance of login, home, and cargo management features. Validated critical functionalities for creating and managing agent cargo, Dhaka cargo, and OTP-based PODs. Conducted functional, regression, and usability testing.</p>
+<div class="project-links">
+<a href="#" class="project-link">
+<i class="fas fa-lock"></i> Corporate Use Only
+</a>
+</div>
+</div>
+</div>
+
+<div class="project-card">
+<div class="project-img">
+<i class="fas fa-shopping-cart"></i>
+</div>
+<div class="project-info">
+<h3 class="project-title">E-Commerce Site Management System</h3>
+<p class="project-tech">Next.js, Node.js, Express.js, JQuery, MySQL</p>
+<p class="project-contribution">Ensured precision of customer purchasing and seller management features. Evaluated inventory management, stock tracking, HR operations, salary computation, and exchange processes. Conducted rigorous functional, regression, and performance testing.</p>
+<div class="project-links">
+<a href="#" class="project-link">
+<i class="fas fa-lock"></i> Not Publicly Accessible
+</a>
+</div>
+</div>
+</div>
+
+
+
+<div class="project-card">
+<div class="project-img">
+<i class="fas fa-futbol"></i>
+</div>
+<div class="project-info">
+<h3 class="project-title">Soccer Social Website</h3>
+<p class="project-tech">React, Next.js, MongoDB</p>
+<p class="project-contribution">Performed comprehensive UI, functional, manual, and regression testing on both the website and admin panel to ensure seamless user experience and stable MVP release.</p>
+<div class="project-links">
+<a href="https://soccer-social.com/" class="project-link" target="_blank">
+<i class="fas fa-external-link-alt"></i> Visit Project
+</a>
+</div>
+</div>
+</div>
+
+
+<div class="project-card">
+<div class="project-img">
+<i class="fas fa-briefcase"></i>
+</div>
+<div class="project-info">
+<h3 class="project-title">RemotISJobs-Job Portal</h3>
+<p class="project-tech">React, Next.js, MongoDB</p>
+<p class="project-contribution">Executed UI, functional, regression, and usability testing to validate smooth operations for both job providers and job seekers, ensuring readiness for rapid market validation.</p>
+<div class="project-links">
+<a href="#" class="project-link">
+<i class="fas fa-lock"></i> Not Publicly Accessible
+</a>
+</div>
+</div>
+</div>
+
+<div class="project-card">
+<div class="project-img">
+<i class="fas fa-users"></i>
+</div>
+<div class="project-info">
+<h3 class="project-title">Tassel Mobile App</h3>
+<p class="project-tech">Flutter, node.js, MongoDB</p>
+<p class="project-contribution">Conducted multi-user role testing, including UI, functional, regression, and usability validation, to support MVP launch of a community-building mobile application.</p>
+<div class="project-links">
+<a href="#" class="project-link">
+<i class="fas fa-lock"></i> Not Publicly Accessible
+</a>
+</div>
+</div>
+</div>
+
+
+<div class="project-card">
+<div class="project-img">
+<i class="fas fa-newspaper"></i>
+</div>
+<div class="project-info">
+<h3 class="project-title">PageDrop Mobile App</h3>
+<p class="project-tech">Flutter, node.js, MongoDB</p>
+<p class="project-contribution">Delivered manual, functional, regression, and usability testing to guarantee intuitive user interactions and successful MVP deployment of a digital newspaper app.</p>
+<div class="project-links">
+<a href="#" class="project-link">
+<i class="fas fa-lock"></i> Not Publicly Accessible
+</a>
+</div>
+</div>
+</div>
+
+
+
+
+</div>
+</div>
+</section>
+
+<!-- Education Section -->
+<section id="education">
+<div class="container">
+<div class="section-header">
+<h2 class="section-title">Education</h2>
+<p class="section-subtitle">My academic background and qualifications</p>
+</div>
+
+<div class="education-timeline">
+<div class="timeline-item">
+<div class="timeline-content">
+<h3 class="education-title">University of Dhaka</h3>
+<p class="education-degree">MBA in Management Information Systems (MIS)</p>
+<div class="education-details">
+<span>2018 - 2021</span>
+<span>CGPA: 3.65</span>
+</div>
+</div>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-content">
+<h3 class="education-title">United International University</h3>
+<p class="education-degree">B.Sc. in Computer Science & Engineering (CSE)</p>
+<div class="education-details">
+<span>2013 - 2017</span>
+<span>CGPA: 2.92</span>
+</div>
+</div>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-content">
+<h3 class="education-title">Adamjee Cantonment College</h3>
+<p class="education-degree">HSC in Science</p>
+<div class="education-details">
+<span>2012</span>
+<span>GPA: 4.70</span>
+</div>
+</div>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-content">
+<h3 class="education-title">Mirpur Bangla High School</h3>
+<p class="education-degree">SSC in Science</p>
+<div class="education-details">
+<span>2010</span>
+<span>GPA: 5.00</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Certifications Section -->
+<section id="certifications">
+<div class="container">
+<div class="section-header">
+<h2 class="section-title">Certifications & Training</h2>
+<p class="section-subtitle">My professional certifications and specialized training</p>
+</div>
+
+<div class="certs-grid">
+<div class="cert-card">
+<h3 class="cert-title">Creating Compelling Reports</h3>
+<p class="cert-issuer">Cisco</p>
+<p class="cert-date">April 2024</p>
+<div class="cert-skills">
+<span class="cert-skill">Report Audience</span>
+<span class="cert-skill">Report Purpose</span>
+<span class="cert-skill">Report Tone</span>
+</div>
+</div>
+
+<div class="cert-card">
+<h3 class="cert-title">Agile Fundamentals Certification</h3>
+<p class="cert-issuer">Udemy</p>
+<p class="cert-date">October 2024</p>
+<div class="cert-skills">
+<span class="cert-skill">Agile Principles</span>
+<span class="cert-skill">Scrum Framework</span>
+<span class="cert-skill">Agile vs Waterfall</span>
+</div>
+</div>
+
+<div class="cert-card">
+<h3 class="cert-title">Introduction to Cybersecurity</h3>
+<p class="cert-issuer">Cisco</p>
+<p class="cert-date">April 2024</p>
+<div class="cert-skills">
+<span class="cert-skill">Cyber Best Practices</span>
+<span class="cert-skill">Network Vulnerabilities</span>
+<span class="cert-skill">Threat Detection</span>
+</div>
+</div>
+
+<div class="cert-card">
+<h3 class="cert-title">Professional Diploma in Software Testing & QA</h3>
+<p class="cert-issuer">Udemy</p>
+<p class="cert-date">October 2024</p>
+<div class="cert-skills">
+<span class="cert-skill">Testing Principles</span>
+<span class="cert-skill">Quality Assurance</span>
+<span class="cert-skill">Practical Testing</span>
+</div>
+</div>
+
+<div class="cert-card">
+<h3 class="cert-title">Hands On Software Quality Assurance & Cyber Security</h3>
+<p class="cert-issuer">IT Training BD</p>
+<p class="cert-date">December 2023 - September 2024</p>
+<div class="cert-skills">
+<span class="cert-skill">Practical SQA</span>
+<span class="cert-skill">Security Testing</span>
+<span class="cert-skill">Real-world Projects</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact">
+<div class="container">
+<div class="section-header">
+<h2 class="section-title">Get In Touch</h2>
+<p class="section-subtitle">Feel free to reach out for collaboration or opportunities</p>
+</div>
+
+<div class="contact-container">
+<div class="contact-info">
+<div class="contact-item">
+<div class="contact-icon">
+<i class="fas fa-envelope"></i>
+</div>
+<div class="contact-text">
+<h3>Email</h3>
+<p>zubairahmedsqa@gmail.com</p>
+</div>
+</div>
+
+<div class="contact-item">
+<div class="contact-icon">
+<i class="fas fa-phone"></i>
+</div>
+<div class="contact-text">
+<h3>Phone</h3>
+<p>+88 01677307120</p>
+</div>
+</div>
+
+<div class="contact-item">
+<div class="contact-icon">
+<i class="fas fa-map-marker-alt"></i>
+</div>
+<div class="contact-text">
+<h3>Location</h3>
+<p>Dhaka, Bangladesh</p>
+</div>
+</div>
+</div>
+
+
+<div class="contactform">
+<form id="contactForm">
+				     <div>
+				     
+<div class="form-group">
+<label for="name">Full Name*:</label>
+<input type="text" id="name" name="user_name" required>
+</div>
+
+<div class="form-group">
+<label for="email">Email Address*:</label>
+<input type="email" id="email" name="user_email" required>
+</div>
+
+<div class="form-group">
+<label for="message">Your Message*:</label>
+<textarea id="message" name="message" required></textarea>
+</div>
+<button type="submit" class="btn">Send Message</button>
+</div>
+
+</div>
+			</div>
+			
+
+
+</form>
+</div>
+
+
+
+</div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer>
+<div class="container">
+<div class="footer-content">
+<div class="logo">Zubair Ahmed</div>
+<p>Software Quality Assurance Engineer</p>
+
+<div class="social-links">
+<a href="https://www.linkedin.com/in/zubair-ahmed-7b9046237/" class="social-link" aria-label="LinkedIn">
+<i class="fab fa-linkedin-in"></i>
+</a>
+<a href="https://github.com/zubairahmed2012" class="social-link" aria-label="GitHub">
+<i class="fab fa-github"></i>
+</a>
+<a href="#" class="social-link" aria-label="Twitter">
+<i class="fab fa-twitter"></i>
+</a>
+<a href="https://www.facebook.com/it-Training-Bd-21709926924087" class="social-link" aria-label="Facebook">
+<i class="fab fa-facebook-f"></i>
+</a>
+</div>
+
+<div class="copyright">
+&copy; 2025 Zubair Ahmed. All Rights Reserved.
+</div>
+</div>
+</div>
+</footer>
 
 
 
 <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script>
-    (function() {
-        emailjs.init("z5rXxSFdumuGDCwr3"); // Replace with your public key from EmailJS dashboard
-    })();
+(function() {
+emailjs.init("z5rXxSFdumuGDCwr3"); // Replace with your public key from EmailJS dashboard
+})();
 </script>
-    
-    <script>
-        // Mobile menu toggle
-        const mobileMenu = document.querySelector('.mobile-menu');
-        const navLinks = document.querySelector('.nav-links');
-        
-        mobileMenu.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-        
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
-        
-        // Form submission
-        const contactForm = document.getElementByID('contactForm');
 
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
+<script>
+// Mobile menu toggle
+const mobileMenu = document.querySelector('.mobile-menu');
+const navLinks = document.querySelector('.nav-links');
 
-        emailjs.sendForm('service_y0xx8xv', 'template_dfp686i', this)
-        .then(() => {
-            alert('Thank you for your message! I will get back to you soon.');
-            contactForm.reset();
-        }, (error) => {
-            alert('Oops! Something went wrong. Please try again later.');
-            console.error('EmailJS Error:', error);
-        });
-    });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    </script>
+mobileMenu.addEventListener('click', () => {
+navLinks.classList.toggle('active');
+});
+
+// Close mobile menu when clicking a link
+document.querySelectorAll('.nav-links a').forEach(link => {
+link.addEventListener('click', () => {
+navLinks.classList.remove('active');
+});
+});
+
+// Form submission
+const contactForm = document.getElementById('contactForm');
+
+contactForm.addEventListener('submit', function(e) {
+e.preventDefault();
+
+emailjs.sendForm('service_y0xx8xv', 'template_dfp686i', this)
+.then(() => {
+alert('Thank you for your message! I will get back to you soon.');
+contactForm.reset();
+}, (error) => {
+alert('Oops! Something went wrong. Please try again later.');
+console.error('EmailJS Error:', error);
+});
+});
+
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function(e) {
+e.preventDefault();
+
+const targetId = this.getAttribute('href');
+const targetElement = document.querySelector(targetId);
+
+if (targetElement) {
+window.scrollTo({
+top: targetElement.offsetTop - 80,
+behavior: 'smooth'
+});
+}
+});
+});
+</script>
 </body>
 </html>
