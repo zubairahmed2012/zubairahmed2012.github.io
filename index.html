@@ -1114,8 +1114,9 @@
                 </div>
 
 
-                 <div class="contact-form">
+                 <div class="contactform">
                <form id="contactForm">
+				     <div>
     <div class="form-group">
         <label for="name">Full Name*:</label>
         <input type="text" id="name" name="user_name" required>
@@ -1134,6 +1135,7 @@
     </div>
 	
 </div>
+			</div>
 	
         
 </form>
@@ -1200,7 +1202,7 @@
         });
         
         // Form submission
-        const contactForm = document.getElementById('contact-Form');
+        const contactForm = document.getElementById('contactForm');
 
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
